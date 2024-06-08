@@ -11,3 +11,8 @@ pip install pipco
 ```bash
 pco help
 ```
+
+
+## 知识星球
+
+![](https://bornforthis.cn/zsxq.jpg)
