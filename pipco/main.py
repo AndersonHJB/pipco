@@ -1,8 +1,7 @@
 import argparse
-import configparser
-import sys
+import subprocess
 
-# 配置源的字典
+# 定义可用的pip源
 SOURCES = {
     "pypi": "https://pypi.python.org/simple/",
     "douban": "http://pypi.douban.com/simple/",
@@ -11,49 +10,42 @@ SOURCES = {
 }
 
 
-def load_config():
-    config = configparser.ConfigParser()
-    config.read('config.ini')
-    return config
-
-
-def save_config(config):
-    with open('config.ini', 'w') as configfile:
-        config.write(configfile)
-
-
-def show_current_source():
-    config = load_config()
-    print("当前pip源是：", config['default']['source'])
-
-
-def change_source(source_name):
-    config = load_terms()
-    if source_name in SOURCES:
-        config['default'] = {'source': SOURCES[source_name]}
-        save_config(config)
-        print(f"已切换到 {source_name} 源")
-    else:
-        print("未找到指定的源，请检查源名称是否正确。")
-
-
 def list_sources():
     for name, url in SOURCES.items():
         print(f"{name}: {url}")
 
 
+def get_current_source():
+    result = subprocess.run(['pip', 'config', 'get', 'global.index-url'], capture_output=True, text=True)
+    if result.stdout:
+        print("当前pip源:", result.stdout.strip())
+    else:
+        print("未设置pip源")
+
+
+def set_source(name):
+    if name in SOURCES:
+        subprocess.run(['pip', 'config', 'set', 'global.index-url', SOURCES[name]])
+        print(f"已切换到源: {name}")
+    else:
+        print("未找到指定的源，请使用pco ls查看所有可用的源")
+
+
 def main():
-    parser = argparse.ArgumentParser(description='PIPCO - Python Change Source Tool')
-    parser.add_argument('command', choices=['now', 'use', 'ls'], help='Command to execute')
-    parser.add_argument('source', nargs='?', help='Source name to switch to')
+    parser = argparse.ArgumentParser(description='管理pip源的工具')
+    parser.add_argument('command', help='命令（now, use, ls）')
+    parser.add_argument('source', nargs='?', help='源名称')
+
     args = parser.parse_args()
 
-    if args.command == 'now':
-        show_current_source()
-    elif args.command == 'use':
-        change_source(args.source)
-    elif args.command == 'ls':
+    if args.command == 'ls':
         list_sources()
+    elif args.command == 'now':
+        get_current_source()
+    elif args.command == 'user' and args.source:
+        set_source(args.source)
+    else:
+        parser.print_help()
 
 
 if __name__ == "__main__":
