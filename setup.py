@@ -18,7 +18,7 @@ URL = 'https://github.com/AndersonHJB/pipco'
 EMAIL = 'aiyuechuang@gmail.com'
 AUTHOR = 'aiyuechuang'
 REQUIRES_PYTHON = '>=3.6.0'
-VERSION = '0.0.7'
+VERSION = '0.0.8'
 
 # What packages are required for this module to be executed?
 REQUIRED = [
