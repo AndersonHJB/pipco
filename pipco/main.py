@@ -5,8 +5,8 @@ import os
 # 定义可用的pip源
 PIP_SOURCES = {
     "pypi": "https://pypi.python.org/simple/",
-    "douban": "http://pypi.douban.com/simple/",
-    "aliyun": "http://mirrors.aliyun.com/pypi/simple/",
+    "douban": "https://pypi.douban.com/simple/",
+    "aliyun": "https://mirrors.aliyun.com/pypi/simple/",
     "qinghua": "https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple/"
 }
 
