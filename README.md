@@ -19,4 +19,4 @@ pco help
 
 ## 个人二维码
 
-![img.png](img.png)
+![img.png](./images/img.png)
