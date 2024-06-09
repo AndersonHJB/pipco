@@ -18,7 +18,7 @@ URL = 'https://github.com/AndersonHJB/pipco'
 EMAIL = 'aiyuechuang@gmail.com'
 AUTHOR = 'aiyuechuang'
 REQUIRES_PYTHON = '>=3.6.0'
-VERSION = '0.0.12'
+VERSION = '0.0.13'
 
 # What packages are required for this module to be executed?
 REQUIRED = [
@@ -89,7 +89,7 @@ class UploadCommand(Command):
         os.system('git tag v{0}'.format(about['__version__']))
         os.system('git push --tags')
         os.system('git add .')
-        os.system('git commit -m "添加个人二维码"')
+        os.system('git commit -m "修改个人二维码"')
         os.system('git push')
 
         sys.exit()
