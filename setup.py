@@ -89,7 +89,7 @@ class UploadCommand(Command):
         os.system('git tag v{0}'.format(about['__version__']))
         os.system('git push --tags')
         os.system('git add .')
-        os.system('git commit -m "添加知识星球二维码"')
+        os.system('git commit -m "添加个人二维码"')
         os.system('git push')
 
         sys.exit()

@@ -16,3 +16,7 @@ pco help
 ## 知识星球
 
 ![](https://bornforthis.cn/zsxq.jpg)
+
+## 个人二维码
+
+![img.png](img.png)
