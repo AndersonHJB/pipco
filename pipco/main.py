@@ -32,6 +32,7 @@ def show_current_source():
         pip_config_file = os.path.join(os.path.expanduser('~'), 'pip', 'pip.ini')
     else:  # macOS and Linux
         pip_config_file = os.path.join(os.path.expanduser('~'), '.pip', 'pip.conf')
+        print(pip_config_file)
 
     try:
         with open(pip_config_file, 'r') as file:
