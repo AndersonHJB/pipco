@@ -184,10 +184,15 @@ import subprocess
 # 定义可用的pip源
 PIP_SOURCES = {
     "pypi": "https://pypi.python.org/simple/",
-    "douban": "http://pypi.douban.com/simple/",
-    "aliyun": "http://mirrors.aliyun.com/pypi/simple/",
-    "qinghua": "https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple/"
+    "douban": "https://pypi.douban.com/simple/",
+    "aliyun": "https://mirrors.aliyun.com/pypi/simple/",
+    "qinghua1": "https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple/",
+    "qinghua2": "https://pypi.tuna.tsinghua.edu.cn/simple/",
+    "zkd": "http://pypi.mirrors.ustc.edu.cn/simple/",
 }
+Tips = """
+豆瓣源失效了～
+"""
 
 
 def show_help():
@@ -201,7 +206,7 @@ def show_help():
     pco ls             List available pip sources
 
     Available sources:
-    pypi, douban, aliyun, qinghua
+    pypi, douban「貌似挂了」, aliyun, qinghua
     """
     print(help_message)
 
@@ -232,6 +237,7 @@ def list_sources():
     print("Available pip sources:")
     for name, url in PIP_SOURCES.items():
         print(f"{name}: {url}")
+    print(f"Tips:{Tips}")
 
 
 def main():
