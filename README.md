@@ -19,4 +19,4 @@ pco help
 
 ## 个人二维码
 
-![img.png](images/img.png)
+![](https://raw.githubusercontent.com/AndersonHJB/pipco/main/images/img.png)
